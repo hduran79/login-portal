@@ -21,13 +21,15 @@
 		<repository>
 			<id>pol-vendor-repository</id>
 			<name>POL third party vendor dependencies</name>
-			<url>file://${project.basedir}/vendor</url>
+			<url>file://${project.basedir}/../vendor</url>
 		</repository>
+
 		<repository>
-			<id>central-repository</id>
-			<name>Central Repository</name>
-			<url>http://central.maven.org/maven2/</url>
+			<id>maven-votre</id>
+			<name>Maven Votre</name>
+			<url>https://nexus-dso.serviciosit.co/repository/maven-votre/</url>
 		</repository>
+
 	</repositories>
 
 	<dependencies>
@@ -35,23 +37,26 @@
 			<groupId>javax</groupId>
 			<artifactId>javaee-api</artifactId>
 			<version>7.0</version>
+			<scope>provided</scope>
 		</dependency>
 
 		<dependency>
 			<groupId>javax.portlet</groupId>
 			<artifactId>portlet-api</artifactId>
-			<version>2.0</version>
+			<version>3.0.1</version>
+			<scope>provided</scope>
 		</dependency>
-
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>4.12</version>
+			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.mockito</groupId>
 			<artifactId>mockito-core</artifactId>
 			<version>2.13.0</version>
+			<scope>test</scope>
 		</dependency>
 
 		<dependency>
@@ -66,16 +71,104 @@
 			<version>6.0</version>
 			<scope>provided</scope>
 		</dependency>
-
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.7.36</version>
+		</dependency>
 		<dependency>
 			<groupId>ch.qos.logback</groupId>
 			<artifactId>logback-classic</artifactId>
-			<version>1.2.3</version>
+			<version>1.2.11</version>
+		</dependency>
+		<dependency>
+			<groupId>com.hcl.portal</groupId>
+			<artifactId>com.ibm.ws.portletcontainer</artifactId>
+			<version>1.0.0</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>com.hcl.portal</groupId>
+			<artifactId>ilwwcm-api</artifactId>
+			<version>1.0.0</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>com.hcl.portal</groupId>
+			<artifactId>pznresources</artifactId>
+			<version>1.0.0</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>com.hcl.portal</groupId>
+			<artifactId>pznruntime</artifactId>
+			<version>1.0.0</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>com.hcl.portal</groupId>
+			<artifactId>wp.auth.base</artifactId>
+			<version>1.0.0</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>com.hcl.portal</groupId>
+			<artifactId>wp.auth.cmd</artifactId>
+			<version>1.0.0</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>com.hcl.portal</groupId>
+			<artifactId>wp.base</artifactId>
+			<version>1.0.0</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>com.hcl.portal</groupId>
+			<artifactId>wp.portletservices.api.standard</artifactId>
+			<version>1.0.0</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>com.hcl.portal</groupId>
+			<artifactId>wp.user.api</artifactId>
+			<version>1.0.0</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>com.hcl.portal</groupId>
+			<artifactId>wp.user.impl</artifactId>
+			<version>1.0.0</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>com.hcl.portal</groupId>
+			<artifactId>wp.pe.api.standard</artifactId>
+			<version>1.0.0</version>
+			<scope>provided</scope>
 		</dependency>
 
 	</dependencies>
 
 	<build>
+		<resources>
+				<resource>
+					<directory>src/main/resource</directory>
+					<includes>
+						<include>**/*</include>
+					</includes>
+				</resource>
+		</resources>
 		<plugins>
 			<plugin>
 				<groupId>org.sonarsource.scanner.maven</groupId>
@@ -135,5 +228,4 @@
 			</plugin>
 		</plugins>
 	</build>
-
 </project>
